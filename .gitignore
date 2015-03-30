@@ -1,0 +1,5 @@
+.DS_Store
+
+#CocoaPos	
+Pods/
+Podfile.lock  # changed my mind on Podfile.lock
