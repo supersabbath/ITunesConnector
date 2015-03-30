@@ -1,0 +1,553 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE1EB4F9D0A8845A93A874A7 /* libPods-iTunesConnector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 305FB1C7756AE6AB08A62A5A /* libPods-iTunesConnector.a */; };
+		D85C92E9F1960BE2CF6C3FA9 /* libPods-iTunesConnector Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCEB8A3C7C244D67FDF3FCA /* libPods-iTunesConnector Test.a */; };
+		E13A30961AC8344700258E35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30951AC8344700258E35 /* main.m */; };
+		E13A30A51AC8347900258E35 /* iTunesConnector_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30A41AC8347900258E35 /* iTunesConnector_Test.m */; };
+		E13A30AC1AC8354F00258E35 /* ITunesConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30AB1AC8354F00258E35 /* ITunesConnector.m */; };
+		E13A30AD1AC8354F00258E35 /* ITunesConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30AB1AC8354F00258E35 /* ITunesConnector.m */; };
+		E13A30B31AC8355B00258E35 /* NSFileHandle+Print.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30B01AC8355B00258E35 /* NSFileHandle+Print.m */; };
+		E13A30B41AC8355B00258E35 /* NSFileHandle+Print.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30B01AC8355B00258E35 /* NSFileHandle+Print.m */; };
+		E13A30B51AC8355B00258E35 /* NSInvocationInSetFix.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30B21AC8355B00258E35 /* NSInvocationInSetFix.m */; };
+		E13A30B61AC8355B00258E35 /* NSInvocationInSetFix.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30B21AC8355B00258E35 /* NSInvocationInSetFix.m */; };
+		E13A30BA1AC85BFA00258E35 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30B91AC85BFA00258E35 /* NSData+MD5.m */; };
+		E13A30BB1AC85BFA00258E35 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30B91AC85BFA00258E35 /* NSData+MD5.m */; };
+		E13A30BE1AC85C7B00258E35 /* ITunesConnectorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30BD1AC85C7B00258E35 /* ITunesConnectorUtils.m */; };
+		E13A30BF1AC85C7B00258E35 /* ITunesConnectorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30BD1AC85C7B00258E35 /* ITunesConnectorUtils.m */; };
+		E13A30C11AC85ECA00258E35 /* iTConnectorUtilsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30C01AC85ECA00258E35 /* iTConnectorUtilsTest.m */; };
+		E13A30CC1AC8828600258E35 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30CB1AC8828600258E35 /* Options.m */; };
+		E13A30CD1AC8828600258E35 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30CB1AC8828600258E35 /* Options.m */; };
+		E13A30D01AC8849D00258E35 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30CF1AC8849D00258E35 /* Action.m */; };
+		E13A30D11AC8849D00258E35 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30CF1AC8849D00258E35 /* Action.m */; };
+		E13A30D41AC888A600258E35 /* UploadAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30D31AC888A600258E35 /* UploadAction.m */; };
+		E13A30D51AC888A600258E35 /* UploadAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30D31AC888A600258E35 /* UploadAction.m */; };
+		E13A30D81AC9BB8E00258E35 /* LookupMetadataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */; };
+		E13A30D91AC9BB8E00258E35 /* LookupMetadataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E13A30901AC8344700258E35 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0FF941419D5B5183B84A2132 /* Pods-iTunesConnector Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesConnector Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesConnector Test/Pods-iTunesConnector Test.debug.xcconfig"; sourceTree = "<group>"; };
+		305FB1C7756AE6AB08A62A5A /* libPods-iTunesConnector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iTunesConnector.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49B702176802B7F91C656C3D /* Pods-iTunesConnector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesConnector.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesConnector/Pods-iTunesConnector.release.xcconfig"; sourceTree = "<group>"; };
+		9CCEB8A3C7C244D67FDF3FCA /* libPods-iTunesConnector Test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iTunesConnector Test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE1911AB25BCB2E06DB483D4 /* Pods-iTunesConnector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesConnector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesConnector/Pods-iTunesConnector.debug.xcconfig"; sourceTree = "<group>"; };
+		CA13D569AB2162C314A99587 /* Pods-iTunesConnector Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesConnector Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesConnector Test/Pods-iTunesConnector Test.release.xcconfig"; sourceTree = "<group>"; };
+		E13A30921AC8344700258E35 /* iTunesConnector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = iTunesConnector; sourceTree = BUILT_PRODUCTS_DIR; };
+		E13A30951AC8344700258E35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E13A30A01AC8347900258E35 /* iTunesConnector Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iTunesConnector Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E13A30A31AC8347900258E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E13A30A41AC8347900258E35 /* iTunesConnector_Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesConnector_Test.m; sourceTree = "<group>"; };
+		E13A30AA1AC8354F00258E35 /* ITunesConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITunesConnector.h; sourceTree = "<group>"; };
+		E13A30AB1AC8354F00258E35 /* ITunesConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITunesConnector.m; sourceTree = "<group>"; };
+		E13A30AF1AC8355B00258E35 /* NSFileHandle+Print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileHandle+Print.h"; sourceTree = "<group>"; };
+		E13A30B01AC8355B00258E35 /* NSFileHandle+Print.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileHandle+Print.m"; sourceTree = "<group>"; };
+		E13A30B11AC8355B00258E35 /* NSInvocationInSetFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSInvocationInSetFix.h; sourceTree = "<group>"; };
+		E13A30B21AC8355B00258E35 /* NSInvocationInSetFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSInvocationInSetFix.m; sourceTree = "<group>"; };
+		E13A30B81AC85BFA00258E35 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		E13A30B91AC85BFA00258E35 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
+		E13A30BC1AC85C7B00258E35 /* ITunesConnectorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITunesConnectorUtils.h; sourceTree = "<group>"; };
+		E13A30BD1AC85C7B00258E35 /* ITunesConnectorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITunesConnectorUtils.m; sourceTree = "<group>"; };
+		E13A30C01AC85ECA00258E35 /* iTConnectorUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTConnectorUtilsTest.m; sourceTree = "<group>"; };
+		E13A30CA1AC8828600258E35 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
+		E13A30CB1AC8828600258E35 /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
+		E13A30CE1AC8849D00258E35 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		E13A30CF1AC8849D00258E35 /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
+		E13A30D21AC888A600258E35 /* UploadAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAction.h; sourceTree = "<group>"; };
+		E13A30D31AC888A600258E35 /* UploadAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAction.m; sourceTree = "<group>"; };
+		E13A30D61AC9BB8E00258E35 /* LookupMetadataAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookupMetadataAction.h; sourceTree = "<group>"; };
+		E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookupMetadataAction.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E13A308F1AC8344700258E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE1EB4F9D0A8845A93A874A7 /* libPods-iTunesConnector.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E13A309D1AC8347900258E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D85C92E9F1960BE2CF6C3FA9 /* libPods-iTunesConnector Test.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1BBD4A01448258A0B5232A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				305FB1C7756AE6AB08A62A5A /* libPods-iTunesConnector.a */,
+				9CCEB8A3C7C244D67FDF3FCA /* libPods-iTunesConnector Test.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C377F58034B0CC489334BE32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE1911AB25BCB2E06DB483D4 /* Pods-iTunesConnector.debug.xcconfig */,
+				49B702176802B7F91C656C3D /* Pods-iTunesConnector.release.xcconfig */,
+				0FF941419D5B5183B84A2132 /* Pods-iTunesConnector Test.debug.xcconfig */,
+				CA13D569AB2162C314A99587 /* Pods-iTunesConnector Test.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E13A30891AC8344700258E35 = {
+			isa = PBXGroup;
+			children = (
+				E13A30941AC8344700258E35 /* iTunesConnector */,
+				E13A30A11AC8347900258E35 /* iTunesConnector Test */,
+				E13A30931AC8344700258E35 /* Products */,
+				C377F58034B0CC489334BE32 /* Pods */,
+				C1BBD4A01448258A0B5232A9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E13A30931AC8344700258E35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E13A30921AC8344700258E35 /* iTunesConnector */,
+				E13A30A01AC8347900258E35 /* iTunesConnector Test.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E13A30941AC8344700258E35 /* iTunesConnector */ = {
+			isa = PBXGroup;
+			children = (
+				E13A30B71AC85BFA00258E35 /* categories */,
+				E13A30A91AC8354F00258E35 /* src */,
+				E13A30AE1AC8355B00258E35 /* vendor */,
+				E13A30951AC8344700258E35 /* main.m */,
+			);
+			path = iTunesConnector;
+			sourceTree = "<group>";
+		};
+		E13A30A11AC8347900258E35 /* iTunesConnector Test */ = {
+			isa = PBXGroup;
+			children = (
+				E13A30A41AC8347900258E35 /* iTunesConnector_Test.m */,
+				E13A30A21AC8347900258E35 /* Supporting Files */,
+				E13A30C01AC85ECA00258E35 /* iTConnectorUtilsTest.m */,
+			);
+			path = "iTunesConnector Test";
+			sourceTree = "<group>";
+		};
+		E13A30A21AC8347900258E35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E13A30A31AC8347900258E35 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E13A30A91AC8354F00258E35 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E13A30CE1AC8849D00258E35 /* Action.h */,
+				E13A30CF1AC8849D00258E35 /* Action.m */,
+				E13A30AA1AC8354F00258E35 /* ITunesConnector.h */,
+				E13A30AB1AC8354F00258E35 /* ITunesConnector.m */,
+				E13A30BC1AC85C7B00258E35 /* ITunesConnectorUtils.h */,
+				E13A30BD1AC85C7B00258E35 /* ITunesConnectorUtils.m */,
+				E13A30CA1AC8828600258E35 /* Options.h */,
+				E13A30CB1AC8828600258E35 /* Options.m */,
+				E13A30D21AC888A600258E35 /* UploadAction.h */,
+				E13A30D31AC888A600258E35 /* UploadAction.m */,
+				E13A30D61AC9BB8E00258E35 /* LookupMetadataAction.h */,
+				E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		E13A30AE1AC8355B00258E35 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E13A30AF1AC8355B00258E35 /* NSFileHandle+Print.h */,
+				E13A30B01AC8355B00258E35 /* NSFileHandle+Print.m */,
+				E13A30B11AC8355B00258E35 /* NSInvocationInSetFix.h */,
+				E13A30B21AC8355B00258E35 /* NSInvocationInSetFix.m */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		E13A30B71AC85BFA00258E35 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				E13A30B81AC85BFA00258E35 /* NSData+MD5.h */,
+				E13A30B91AC85BFA00258E35 /* NSData+MD5.m */,
+			);
+			path = categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E13A30911AC8344700258E35 /* iTunesConnector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E13A30991AC8344700258E35 /* Build configuration list for PBXNativeTarget "iTunesConnector" */;
+			buildPhases = (
+				D35578819986EECBA93877E0 /* Check Pods Manifest.lock */,
+				E13A308E1AC8344700258E35 /* Sources */,
+				E13A308F1AC8344700258E35 /* Frameworks */,
+				E13A30901AC8344700258E35 /* CopyFiles */,
+				16435E065CEC19F221E5CAF4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTunesConnector;
+			productName = iTunesConnector;
+			productReference = E13A30921AC8344700258E35 /* iTunesConnector */;
+			productType = "com.apple.product-type.tool";
+		};
+		E13A309F1AC8347900258E35 /* iTunesConnector Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E13A30A61AC8347900258E35 /* Build configuration list for PBXNativeTarget "iTunesConnector Test" */;
+			buildPhases = (
+				13F0F77EFD369E23FC235F3D /* Check Pods Manifest.lock */,
+				E13A309C1AC8347900258E35 /* Sources */,
+				E13A309D1AC8347900258E35 /* Frameworks */,
+				E13A309E1AC8347900258E35 /* Resources */,
+				61053F4BC791F07E5C662FB2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iTunesConnector Test";
+			productName = "iTunesConnector Test";
+			productReference = E13A30A01AC8347900258E35 /* iTunesConnector Test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E13A308A1AC8344700258E35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Fernando Canon";
+				TargetAttributes = {
+					E13A30911AC8344700258E35 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					E13A309F1AC8347900258E35 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = E13A308D1AC8344700258E35 /* Build configuration list for PBXProject "iTunesConnector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E13A30891AC8344700258E35;
+			productRefGroup = E13A30931AC8344700258E35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E13A30911AC8344700258E35 /* iTunesConnector */,
+				E13A309F1AC8347900258E35 /* iTunesConnector Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E13A309E1AC8347900258E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13F0F77EFD369E23FC235F3D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		16435E065CEC19F221E5CAF4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTunesConnector/Pods-iTunesConnector-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61053F4BC791F07E5C662FB2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTunesConnector Test/Pods-iTunesConnector Test-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D35578819986EECBA93877E0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E13A308E1AC8344700258E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E13A30961AC8344700258E35 /* main.m in Sources */,
+				E13A30D41AC888A600258E35 /* UploadAction.m in Sources */,
+				E13A30D01AC8849D00258E35 /* Action.m in Sources */,
+				E13A30AC1AC8354F00258E35 /* ITunesConnector.m in Sources */,
+				E13A30D81AC9BB8E00258E35 /* LookupMetadataAction.m in Sources */,
+				E13A30B51AC8355B00258E35 /* NSInvocationInSetFix.m in Sources */,
+				E13A30BE1AC85C7B00258E35 /* ITunesConnectorUtils.m in Sources */,
+				E13A30B31AC8355B00258E35 /* NSFileHandle+Print.m in Sources */,
+				E13A30BA1AC85BFA00258E35 /* NSData+MD5.m in Sources */,
+				E13A30CC1AC8828600258E35 /* Options.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E13A309C1AC8347900258E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E13A30CD1AC8828600258E35 /* Options.m in Sources */,
+				E13A30D91AC9BB8E00258E35 /* LookupMetadataAction.m in Sources */,
+				E13A30A51AC8347900258E35 /* iTunesConnector_Test.m in Sources */,
+				E13A30AD1AC8354F00258E35 /* ITunesConnector.m in Sources */,
+				E13A30B61AC8355B00258E35 /* NSInvocationInSetFix.m in Sources */,
+				E13A30D51AC888A600258E35 /* UploadAction.m in Sources */,
+				E13A30BF1AC85C7B00258E35 /* ITunesConnectorUtils.m in Sources */,
+				E13A30C11AC85ECA00258E35 /* iTConnectorUtilsTest.m in Sources */,
+				E13A30D11AC8849D00258E35 /* Action.m in Sources */,
+				E13A30B41AC8355B00258E35 /* NSFileHandle+Print.m in Sources */,
+				E13A30BB1AC85BFA00258E35 /* NSData+MD5.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E13A30971AC8344700258E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E13A30981AC8344700258E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E13A309A1AC8344700258E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE1911AB25BCB2E06DB483D4 /* Pods-iTunesConnector.debug.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E13A309B1AC8344700258E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49B702176802B7F91C656C3D /* Pods-iTunesConnector.release.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E13A30A71AC8347900258E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FF941419D5B5183B84A2132 /* Pods-iTunesConnector Test.debug.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "iTunesConnector Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E13A30A81AC8347900258E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA13D569AB2162C314A99587 /* Pods-iTunesConnector Test.release.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "iTunesConnector Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E13A308D1AC8344700258E35 /* Build configuration list for PBXProject "iTunesConnector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E13A30971AC8344700258E35 /* Debug */,
+				E13A30981AC8344700258E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E13A30991AC8344700258E35 /* Build configuration list for PBXNativeTarget "iTunesConnector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E13A309A1AC8344700258E35 /* Debug */,
+				E13A309B1AC8344700258E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E13A30A61AC8347900258E35 /* Build configuration list for PBXNativeTarget "iTunesConnector Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E13A30A71AC8347900258E35 /* Debug */,
+				E13A30A81AC8347900258E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E13A308A1AC8344700258E35 /* Project object */;
+}
