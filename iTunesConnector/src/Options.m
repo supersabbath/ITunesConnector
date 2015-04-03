@@ -8,8 +8,14 @@
 
 #import "Options.h"
 #import "UploadAction.h"
+#import "LookupMetadataAction.h"
+
+#import <PromiseKit/Promise.h>
+
+
 
 @implementation Options
+
 - (id)init
 {
     if (self = [super init])
@@ -29,26 +35,62 @@
                            setFlag:@selector(setShowHelp:)],
     
       [Action actionOptionWithName:@"user"
-                           aliases:nil
+                           aliases:@[@"u", @"user"]
                        description:@"Apple User ID"
                          paramName:@"USER_ID"
                              mapTo:@selector(setUser:)],
       
       [Action actionOptionWithName:@"password"
-                           aliases:nil
+                           aliases:@[@"p", @"password"]
                        description:@"itunnes password"
                          paramName:@"PASSWD"
                              mapTo:@selector(setPasswd:)]
       ];
 }
 
+
 +(NSArray*) actionClasses
 {
 
- return   @[[UploadAction class]];
+ return   @[[UploadAction class],[LookupMetadataAction class]];
     
 }
 
+/** This method wraps the call to consumeArguments: errorMesage in a promesy style
+ 
+ See more info at: [direct hyperlinks](http://promisekit.org/sealing-your-own-promises/)
+ 
+ @param arguments An array with the command line options
+ @param errorMessage Memory address for the error message
+
+ */
+-(PMKPromise*) processArguments:(NSMutableArray *)arguments
+{
+    Options * __weak options = self;
+
+    return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
+        
+        NSString *errorMessage = nil;
+        [options consumeArguments:arguments errorMessage:&errorMessage];
+        
+        if (errorMessage != nil) {
+           
+            NSError *error = [NSError errorWithDomain:@"OptionsDomain" code:unexpected_action userInfo:@{@"output_message":errorMessage}];
+            reject(error); // The promise failed
+        
+        }else{
+        
+            fulfill(options.actions);
+        }
+        
+    }];
+}
+
+/** This method is inherited from Facebook XCTool
+ 
+will be cover with a promise wraper method to use it under promises architecture
+ 
+ */
 - (NSUInteger)consumeArguments:(NSMutableArray *)arguments errorMessage:(NSString **)errorMessage
 {
     NSMutableDictionary *verbToClass = [NSMutableDictionary dictionary];
@@ -84,9 +126,20 @@
     return consumed;
 }
 
+
 -(NSArray*) concatArgumentsForITMSTransporter
 {
-    return @[];
+    NSArray *itmsArgs = nil;
+    
+    if (self.passwd != nil && self.user != nil)
+    {
+        itmsArgs = @[@"-u", self.user, @"-p", self.passwd];
+    }
+    else {
+        NSLog(@"ITunesConnector Should have password and user");
+        abort();
+    }
+    return itmsArgs;
 }
 
 @end

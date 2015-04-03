@@ -52,6 +52,9 @@
 
 - (NSUInteger)consumeArguments:(NSMutableArray *)arguments errorMessage:(NSString **)errorMessage;
 
+
+
+
 /**
  Perform any pre-flight validation that the action needs.  An action might
  check that required arguments are present, or that they have the right values.

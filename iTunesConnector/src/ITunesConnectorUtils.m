@@ -119,3 +119,42 @@ NSString *XcodeDeveloperDirPath(void) {
 }
 
 
+
+BOOL RunITMSTransporterCommand(NSArray *arguments, NSString *command, NSString *title)
+{
+    
+    NSString *xcodePath = XcodeDeveloperDirPath();
+    
+    NSTask *transporterTask = [[NSTask alloc] init];
+    
+    [transporterTask setLaunchPath:[xcodePath stringByAppendingPathComponent:@"Applications/Application Loader.app/Contents/MacOS/itms/bin/iTMSTransporter"]];
+    
+    [transporterTask setArguments:arguments];
+    
+    
+    NSDictionary *output = LaunchTaskAndCaptureOutput(transporterTask,@"Initializing iTMSTrasporter");
+    
+    NSString *stdoutString = output[@"stdout"];
+    
+    NSString *stdErrorString = output[@"stderror"];
+    
+    stdoutString = [stdoutString stringByTrimmingCharactersInSet:
+                    [NSCharacterSet newlineCharacterSet]];
+   
+    //NSString *errorMessage = nil;
+
+    NSLog(@"error %@",stdErrorString );
+    
+    NSLog(@"succes %@",stdoutString);
+    
+    
+    if ([transporterTask terminationReason] == NSTaskTerminationReasonUncaughtSignal)
+    {
+        return NO;
+        
+    }
+    return YES;
+}
+
+
+

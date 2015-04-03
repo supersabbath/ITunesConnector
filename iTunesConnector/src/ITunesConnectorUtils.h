@@ -21,3 +21,4 @@ NSString *ProcessDataFromStoutPut(NSFileHandle *stOut);
 
 NSString *XcodeDeveloperDirPath(void);
 
+BOOL RunITMSTransporterCommand(NSArray *arguments, NSString *command, NSString *title);

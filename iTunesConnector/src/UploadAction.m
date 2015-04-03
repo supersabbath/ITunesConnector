@@ -7,7 +7,7 @@
 //
 
 #import "UploadAction.h"
-
+#import "Options.h"
 @implementation UploadAction
 + (NSString *)name
 {
@@ -21,24 +21,54 @@
     @[
       [Action actionOptionWithName:@"ipa"
                            aliases:nil
-                       description:@"PATH where created archive will be placed."
+                       description:@"PATH local path for .ipa file"
                          paramName:@"PATH"
-                             mapTo:@selector(setIpaPath:)],
+                             mapTo:@selector(setIpaPath:)]
+  
       ];
 }
+/**
+ iTMSTransporter -m upload -f [path to App Store Package] -u [iTunes Connect user name] -p [iTunes Connect password]
+ */
 
-
-- (BOOL)performActionWithOptions:(Options *)options xcodeSubjectInfo:(XcodeSubjectInfo *)xcodeSubjectInfo
+- (PMKPromise*) performActionWithOptions:(Options *)options
 {
-//    NSArray *arguments = [options concatArgumentsForITMSTransporter]
-//                           
-//    
-//    return RunXcodebuildAndFeedEventsToReporters(arguments,
-//                                                 @"build",
-//                                                 [options scheme],
-//                                                 [options reporters]);
+    UploadAction * __weak weakSelf = self;
     
-    return YES;
+    return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
+        
+        NSMutableArray *arguments = [@[@"-m",[UploadAction name]] mutableCopy];
+        
+        [arguments addObjectsFromArray:[weakSelf generateArgumentsForCommand]];
+        
+        [arguments addObjectsFromArray:[options concatArgumentsForITMSTransporter]];
+        
+      
+        
+        if (RunITMSTransporterCommand(arguments, @"lookupMetadata", @"Metadata")){
+#warning fer ojo
+            fulfill(@"success");
+        }else{
+            reject(nil);
+        }
+        
+    }];
 }
+
+-(NSArray *) generateArgumentsForCommand {
+    
+    NSArray *arguments = nil;
+    if (self.ipaPath != nil )
+    {
+        arguments =@[@"-f",self.ipaPath];
+    
+    } else {
+        NSLog(@"ITunesConnector Should have password and user");
+        abort();
+    }
+    
+    return arguments;
+}
+
 
 @end

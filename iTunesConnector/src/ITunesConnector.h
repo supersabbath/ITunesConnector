@@ -16,9 +16,9 @@
 @property (nonatomic, copy) NSArray *arguments;
 @property (nonatomic, assign) int exitStatus;
 
+
+-(id) initWithArguments:(NSArray*)args;
 -(void) run;
-
-
 @end
 
 

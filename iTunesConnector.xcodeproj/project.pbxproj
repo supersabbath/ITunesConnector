@@ -30,7 +30,21 @@
 		E13A30D51AC888A600258E35 /* UploadAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30D31AC888A600258E35 /* UploadAction.m */; };
 		E13A30D81AC9BB8E00258E35 /* LookupMetadataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */; };
 		E13A30D91AC9BB8E00258E35 /* LookupMetadataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */; };
+		E13A30DD1ACA806600258E35 /* libPods-iTunesConnector-PromiseKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E13A30DC1ACA806600258E35 /* libPods-iTunesConnector-PromiseKit.a */; };
+		E13A30DF1ACA808000258E35 /* libPods-iTunesConnector-OMGHTTPURLRQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E13A30DE1ACA808000258E35 /* libPods-iTunesConnector-OMGHTTPURLRQ.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E13A30E11ACA80EE00258E35 /* OptionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A30E01ACA80EE00258E35 /* OptionsTest.m */; };
+		E18192A81ACDEB090081AF62 /* ITCAction+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E18192A71ACDEB090081AF62 /* ITCAction+Action.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E13A30DA1ACA803100258E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E13A308A1AC8344700258E35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E13A30911AC8344700258E35;
+			remoteInfo = iTunesConnector;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E13A30901AC8344700258E35 /* CopyFiles */ = {
@@ -75,6 +89,11 @@
 		E13A30D31AC888A600258E35 /* UploadAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAction.m; sourceTree = "<group>"; };
 		E13A30D61AC9BB8E00258E35 /* LookupMetadataAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookupMetadataAction.h; sourceTree = "<group>"; };
 		E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookupMetadataAction.m; sourceTree = "<group>"; };
+		E13A30DC1ACA806600258E35 /* libPods-iTunesConnector-PromiseKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-iTunesConnector-PromiseKit.a"; path = "../../Library/Developer/Xcode/DerivedData/iTunesConnector-cutvonbdbducuebrbvnehkmzxjkb/Build/Products/Debug/libPods-iTunesConnector-PromiseKit.a"; sourceTree = "<group>"; };
+		E13A30DE1ACA808000258E35 /* libPods-iTunesConnector-OMGHTTPURLRQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-iTunesConnector-OMGHTTPURLRQ.a"; path = "../../Library/Developer/Xcode/DerivedData/iTunesConnector-cutvonbdbducuebrbvnehkmzxjkb/Build/Products/Debug/libPods-iTunesConnector-OMGHTTPURLRQ.a"; sourceTree = "<group>"; };
+		E13A30E01ACA80EE00258E35 /* OptionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTest.m; sourceTree = "<group>"; };
+		E18192A61ACDEB090081AF62 /* ITCAction+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ITCAction+Action.h"; sourceTree = "<group>"; };
+		E18192A71ACDEB090081AF62 /* ITCAction+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ITCAction+Action.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13A30DF1ACA808000258E35 /* libPods-iTunesConnector-OMGHTTPURLRQ.a in Frameworks */,
+				E13A30DD1ACA806600258E35 /* libPods-iTunesConnector-PromiseKit.a in Frameworks */,
 				D85C92E9F1960BE2CF6C3FA9 /* libPods-iTunesConnector Test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +121,8 @@
 		C1BBD4A01448258A0B5232A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E13A30DE1ACA808000258E35 /* libPods-iTunesConnector-OMGHTTPURLRQ.a */,
+				E13A30DC1ACA806600258E35 /* libPods-iTunesConnector-PromiseKit.a */,
 				305FB1C7756AE6AB08A62A5A /* libPods-iTunesConnector.a */,
 				9CCEB8A3C7C244D67FDF3FCA /* libPods-iTunesConnector Test.a */,
 			);
@@ -154,6 +177,7 @@
 				E13A30A41AC8347900258E35 /* iTunesConnector_Test.m */,
 				E13A30A21AC8347900258E35 /* Supporting Files */,
 				E13A30C01AC85ECA00258E35 /* iTConnectorUtilsTest.m */,
+				E13A30E01ACA80EE00258E35 /* OptionsTest.m */,
 			);
 			path = "iTunesConnector Test";
 			sourceTree = "<group>";
@@ -181,6 +205,8 @@
 				E13A30D31AC888A600258E35 /* UploadAction.m */,
 				E13A30D61AC9BB8E00258E35 /* LookupMetadataAction.h */,
 				E13A30D71AC9BB8E00258E35 /* LookupMetadataAction.m */,
+				E18192A61ACDEB090081AF62 /* ITCAction+Action.h */,
+				E18192A71ACDEB090081AF62 /* ITCAction+Action.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -240,6 +266,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E13A30DB1ACA803100258E35 /* PBXTargetDependency */,
 			);
 			name = "iTunesConnector Test";
 			productName = "iTunesConnector Test";
@@ -367,6 +394,7 @@
 				E13A30B51AC8355B00258E35 /* NSInvocationInSetFix.m in Sources */,
 				E13A30BE1AC85C7B00258E35 /* ITunesConnectorUtils.m in Sources */,
 				E13A30B31AC8355B00258E35 /* NSFileHandle+Print.m in Sources */,
+				E18192A81ACDEB090081AF62 /* ITCAction+Action.m in Sources */,
 				E13A30BA1AC85BFA00258E35 /* NSData+MD5.m in Sources */,
 				E13A30CC1AC8828600258E35 /* Options.m in Sources */,
 			);
@@ -380,6 +408,7 @@
 				E13A30D91AC9BB8E00258E35 /* LookupMetadataAction.m in Sources */,
 				E13A30A51AC8347900258E35 /* iTunesConnector_Test.m in Sources */,
 				E13A30AD1AC8354F00258E35 /* ITunesConnector.m in Sources */,
+				E13A30E11ACA80EE00258E35 /* OptionsTest.m in Sources */,
 				E13A30B61AC8355B00258E35 /* NSInvocationInSetFix.m in Sources */,
 				E13A30D51AC888A600258E35 /* UploadAction.m in Sources */,
 				E13A30BF1AC85C7B00258E35 /* ITunesConnectorUtils.m in Sources */,
@@ -391,6 +420,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E13A30DB1ACA803100258E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E13A30911AC8344700258E35 /* iTunesConnector */;
+			targetProxy = E13A30DA1ACA803100258E35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E13A30971AC8344700258E35 /* Debug */ = {
@@ -498,6 +535,10 @@
 				);
 				INFOPLIST_FILE = "iTunesConnector Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/iTunesConnector-cutvonbdbducuebrbvnehkmzxjkb/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -513,6 +554,10 @@
 				);
 				INFOPLIST_FILE = "iTunesConnector Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/iTunesConnector-cutvonbdbducuebrbvnehkmzxjkb/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

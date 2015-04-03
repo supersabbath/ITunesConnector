@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Fernando Canon. All rights reserved.
 //
 
-#import "Action.h"
+#import "ITCAction+Action.h"
 
 @interface LookupMetadataAction : Action
+
+@property (nonatomic,strong) NSString *appSKU;
 @property (nonatomic,strong) NSString *outPutPath;
+
 @end

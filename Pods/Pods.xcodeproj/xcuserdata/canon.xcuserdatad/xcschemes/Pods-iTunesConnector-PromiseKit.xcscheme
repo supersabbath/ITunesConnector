@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "125CCA14D85A5D3B4684932E"
+               BlueprintIdentifier = "6BBCEF74F36E5D400C408904"
                BuildableName = "libPods-iTunesConnector-PromiseKit.a"
                BlueprintName = "Pods-iTunesConnector-PromiseKit"
                ReferencedContainer = "container:Pods.xcodeproj">

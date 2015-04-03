@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Action.h"
+#import "ITCAction+Action.h"
+
 @interface UploadAction : Action
 
-
 @property (nonatomic,strong) NSString *ipaPath;
+
 @end
