@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "ITCAction+Action.h"
 
+
 @interface UploadAction : Action
 
 @property (nonatomic,strong) NSString *ipaPath;
+
+@end
+
+
+@class PMKPromise;
+
+@interface UploadAction (private) // header for testing
+- (PMKPromise*) performActionWithOptions:(Options *)options;
 
 @end

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 
-
+#import <PromiseKit/PromiseKit.h>
 #import "Options.h"
 #import "LookupMetadataAction.h"
 
@@ -132,7 +132,7 @@
         
     }).catch(^(NSError* error){
         
-        expect(error.domain).to.equal(@"OptionsDomain");
+        expect(error.domain).to.equal(@"OptionsErrorDomain");
         
         [catchExpectation fulfill];
     });

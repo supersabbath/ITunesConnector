@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iTunesConnector Test-OMGHTTPURLRQ.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iTunesConnector Test-PromiseKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iTunesConnector Test.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4D70963FDF39D55E3A5B8A89</key>
+		<key>066CC3A36C5D3C8D355F9A8C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6BBCEF74F36E5D400C408904</key>
+		<key>300B28206029A42E200BD634</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7662AFE0BAEE312952743AB3</key>
+		<key>65299F9528CE073CE4B19CCB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1425170BAC56E65B194A8DD</key>
+		<key>729217CD0046295978AE255E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF6B78F4B9843F236620248D</key>
+		<key>8E4FF021D4CEEB8926E972E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F002A370EF67166339CCB745</key>
+		<key>DF26CED712C83B7EDE3184C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9CB71C861C8C22D49CC4BDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCF6F4CDD12627042555DAF8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

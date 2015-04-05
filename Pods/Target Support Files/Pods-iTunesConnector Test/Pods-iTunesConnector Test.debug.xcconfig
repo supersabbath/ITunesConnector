@@ -1,6 +1,6 @@
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 $(inherited) PMK_CALAYER=1 $(inherited) PMK_NSNOTIFICATIONCENTER=1 $(inherited) PMK_NSURLCONNECTION=1 $(inherited) PMK_PAUSE=1 $(inherited) PMK_UNTIL=1 $(inherited) PMK_WHEN=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" "${PODS_ROOT}/Headers/Public/PromiseKit"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Expecta" -isystem "${PODS_ROOT}/Headers/Public/OCMock" -isystem "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" -isystem "${PODS_ROOT}/Headers/Public/PromiseKit"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-iTunesConnector Test-Expecta" -l"Pods-iTunesConnector Test-OCMock" -framework "Foundation"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-iTunesConnector Test-Expecta" -l"Pods-iTunesConnector Test-OCMock" -l"Pods-iTunesConnector Test-OMGHTTPURLRQ" -l"Pods-iTunesConnector Test-PromiseKit" -framework "Foundation" -framework "QuartzCore"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

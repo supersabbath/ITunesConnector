@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ITunesConnector.h"
 /**
     Common tasks presented as functions
  
@@ -21,4 +22,4 @@ NSString *ProcessDataFromStoutPut(NSFileHandle *stOut);
 
 NSString *XcodeDeveloperDirPath(void);
 
-BOOL RunITMSTransporterCommand(NSArray *arguments, NSString *command, NSString *title);
+BOOL RunITMSTransporterCommand(NSArray *arguments, NSString *command);

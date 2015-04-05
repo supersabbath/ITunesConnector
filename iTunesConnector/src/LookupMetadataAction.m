@@ -23,12 +23,12 @@
     return
     @[
       [Action actionOptionWithName:@"path"
-                           aliases:nil
+                           aliases:@[@"pa",@"path"]
                        description:@"OUTPATH where the itmsp created archive will be placed."
                          paramName:@"OUTPATH"
                              mapTo:@selector(setOutPutPath:)],
       [Action actionOptionWithName:@"vendor_id"
-                           aliases:nil
+                           aliases:@[@"v",@"vendor_id"]
                        description:@"VENDOR_ID [App SKU] See ITunnes connect for app sku."
                          paramName:@"VENDOR_ID"
                              mapTo:@selector(setAppSKU:)],
@@ -44,38 +44,58 @@
  */
 - (PMKPromise*) performActionWithOptions:(Options *)options
 {
-    LookupMetadataAction * __weak weakSelf = self;
+    if (options == nil) // security check also used for returning a done nothing promise
+    {
+        return [super performActionWithOptions:nil];
+    }
     
     return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
         
         NSMutableArray *arguments = [@[@"-m",[LookupMetadataAction name]] mutableCopy];
-        
-        [arguments addObjectsFromArray:[options concatArgumentsForITMSTransporter]];
-        
-        [arguments addObjectsFromArray:[weakSelf generateArgumentsForCommand]];
-       
-        if (RunITMSTransporterCommand(arguments, @"lookupMetadata", @"Metadata")){
-#warning fer ojo 
-            fulfill(@"success");
-        }else{
-            reject(nil);
-        }
-        
+
+        [options concatArgumentsForITMSTransporter].then(^(NSMutableArray *moreArgs){
+            
+            [arguments addObjectsFromArray:moreArgs];
+            
+            return [self generateArgumentsForCommand];
+            
+        }).then(^(NSMutableArray* evenMoreArgs){
+            
+            [arguments addObjectsFromArray:evenMoreArgs];
+            if (RunITMSTransporterCommand(arguments, @"lookupMetadata"))
+            {
+                NSString *message =[NSString stringWithFormat:@"%@ succeded file at: %@",[LookupMetadataAction name], self.outPutPath];
+                fulfill(message);
+                
+            }else{
+                reject(nil);
+            }
+        }).catch(^(NSError* error) {
+            
+            reject(error);
+        });
     }];
 }
 
--(NSArray *) generateArgumentsForCommand {
 
-    NSArray *arguments = nil;
+
+-(PMKPromise *) generateArgumentsForCommand
+{
     
-    if (self.appSKU != nil && self.outPutPath != nil) {
+    return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
         
-        arguments =@[@"-vendor_id",self.appSKU,@"-destination",self.outPutPath];
-    } else {
-        NSLog(@"ITunesConnector lookupMetadata  needs vendor and destination path");
-      //  abort();
-    }
-    
-    return arguments;
+        NSArray *arguments = nil;
+
+        if (self.appSKU != nil && self.outPutPath != nil)
+        {
+            arguments =@[@"-vendor_id",self.appSKU,@"-destination",self.outPutPath];
+            fulfill(arguments);
+        }else {
+            
+            NSError *error = [NSError errorWithDomain:@"LookupMetadaErrorDomain" code:missing_parameter_error userInfo:@{@"output_message":@"ITunesConnector lookupMetadata  needs vendor and destination path"}];
+      
+            reject(error);
+        }
+    }];
 }
 @end

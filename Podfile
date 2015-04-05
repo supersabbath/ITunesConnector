@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 def vendors
 
-pod "PromiseKit"      
+    pod 'PromiseKit', '~> 1.4.2'      
 
 end
 def testing
@@ -24,5 +24,6 @@ end
 target 'iTunesConnector Test' , :exclusive => true do
     xcodeproj 'iTunesConnector.xcodeproj'
     
+    vendors
     testing     
 end

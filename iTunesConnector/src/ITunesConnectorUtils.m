@@ -26,6 +26,7 @@ NSDictionary *LaunchTaskAndCaptureOutput(NSTask *task, NSString *description)
     [task setStandardOutput:stdoutPipe];
     [task setStandardError:stderrPipe];
     
+    
         NSArray *arguments = [[NSProcessInfo processInfo] arguments];
     
         // Instead of using `-[Options showCommands]`, we look directly at the process
@@ -120,36 +121,35 @@ NSString *XcodeDeveloperDirPath(void) {
 
 
 
-BOOL RunITMSTransporterCommand(NSArray *arguments, NSString *command, NSString *title)
+BOOL RunITMSTransporterCommand(NSArray *arguments, NSString *command)
 {
+#if DEBUG
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kStdoutnotification object:command];
+    return YES;
+#endif
     
     NSString *xcodePath = XcodeDeveloperDirPath();
     
     NSTask *transporterTask = [[NSTask alloc] init];
-    
     [transporterTask setLaunchPath:[xcodePath stringByAppendingPathComponent:@"Applications/Application Loader.app/Contents/MacOS/itms/bin/iTMSTransporter"]];
     
     [transporterTask setArguments:arguments];
-    
-    
     NSDictionary *output = LaunchTaskAndCaptureOutput(transporterTask,@"Initializing iTMSTrasporter");
     
     NSString *stdoutString = output[@"stdout"];
-    
     NSString *stdErrorString = output[@"stderror"];
-    
     stdoutString = [stdoutString stringByTrimmingCharactersInSet:
                     [NSCharacterSet newlineCharacterSet]];
    
-    //NSString *errorMessage = nil;
+  
 
-    NSLog(@"error %@",stdErrorString );
-    
-    NSLog(@"succes %@",stdoutString);
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kStdoutnotification object:stdoutString];
     
     if ([transporterTask terminationReason] == NSTaskTerminationReasonUncaughtSignal)
     {
+        stdErrorString = [stdErrorString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kStderrornotification object:stdErrorString];
         return NO;
         
     }

@@ -14,6 +14,13 @@
 #include "Action.h"
 #import "ITunesConnectorUtils.h"
 
+
+
+typedef enum : NSUInteger {
+    unexpected_error,
+    missing_parameter_error
+} ActionErrorCode;
+
 @class Options;
 
 @interface Action (itunesconnector)
@@ -24,8 +31,10 @@
  @param options Options for the itmstransporter comman
  @return A promise
  */
-
 - (PMKPromise*) performActionWithOptions:(Options *)options;
+
+
+ 
 @end
 
 

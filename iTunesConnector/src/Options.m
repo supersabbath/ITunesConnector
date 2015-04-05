@@ -9,10 +9,11 @@
 #import "Options.h"
 #import "UploadAction.h"
 #import "LookupMetadataAction.h"
+#import "ReportDownloadAction.h"
 
 #import <PromiseKit/Promise.h>
 
-
+NSString *const kOptionsErrorDomain =@"OptionsErrorDomain";
 
 @implementation Options
 
@@ -52,7 +53,7 @@
 +(NSArray*) actionClasses
 {
 
- return   @[[UploadAction class],[LookupMetadataAction class]];
+ return   @[[UploadAction class],[LookupMetadataAction class],[ReportDownloadAction class]];
     
 }
 
@@ -75,8 +76,8 @@
         
         if (errorMessage != nil) {
            
-            NSError *error = [NSError errorWithDomain:@"OptionsDomain" code:unexpected_action userInfo:@{@"output_message":errorMessage}];
-            reject(error); // The promise failed
+            _error = [options errorForMessage:errorMessage andCode:unexpected_action];
+            reject(_error); // The promise failed
         
         }else{
         
@@ -127,19 +128,42 @@ will be cover with a promise wraper method to use it under promises architecture
 }
 
 
--(NSArray*) concatArgumentsForITMSTransporter
+-(PMKPromise *) concatArgumentsForITMSTransporter
 {
-    NSArray *itmsArgs = nil;
+    Options *__weak weakSelf = self;
     
-    if (self.passwd != nil && self.user != nil)
-    {
-        itmsArgs = @[@"-u", self.user, @"-p", self.passwd];
-    }
-    else {
-        NSLog(@"ITunesConnector Should have password and user");
-        abort();
-    }
-    return itmsArgs;
+    return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
+        
+        NSArray *itmsArgs = nil;
+        if (_passwd != nil && _user != nil)
+        {
+            itmsArgs = @[@"-u", self.user, @"-p", self.passwd];
+            fulfill(itmsArgs);
+        }
+        else
+        {
+            reject([weakSelf errorForMessage:@"ITunesConnector Should have password and user" andCode:missing_parameter_error]);
+        }}];
+}
+//
+//-(NSArray*) concatArgumentsForITMSTransporter
+//{
+//    NSArray *itmsArgs = nil;
+//    
+//    if (self.passwd != nil && self.user != nil)
+//    {
+//        itmsArgs = @[@"-u", self.user, @"-p", self.passwd];
+//    }
+//    else {
+//        NSLog(@"ITunesConnector Should have password and user");
+//        abort();
+//    }
+//    return itmsArgs;
+//}
+
+-(NSError *) errorForMessage:(NSString *)message andCode:(NSUInteger)code{
+
+    return  [NSError errorWithDomain:kOptionsErrorDomain code:code userInfo:@{@"output_message":message}];
 }
 
 @end

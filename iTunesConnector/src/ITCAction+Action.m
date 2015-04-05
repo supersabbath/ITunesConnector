@@ -13,8 +13,9 @@
 - (PMKPromise*) performActionWithOptions:(Options *)options
 {
     return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
-        fulfill(@"nothing done!");
+        fulfill(@"nothing to be done!");
     }];
 }
+
 
 @end

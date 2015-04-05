@@ -74,12 +74,16 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-p DevPl4yc0_ -u dev@playco.com lookupMetadata -vendor_id starzplay -path ~/Desktop"
-            isEnabled = "YES">
+            argument = "lookupMetadata -vendor_id starzplay -path ~/Desktop"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "upload -ipa fake"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-h"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

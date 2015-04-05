@@ -10,8 +10,11 @@
 #import  "Action.h"
 
 typedef enum : NSUInteger {
-    unexpected_action,
+    unexpected_action,    // the action doesn't exist
+    missing_parameters    // _user or _password are nil
 } OptionsErrorCode;
+
+FOUNDATION_EXTERN NSString *const kOptionsErrorDomain;
 
 @class PMKPromise;
 
@@ -20,12 +23,13 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL showHelp;
 @property (nonatomic, strong) NSString* user;
 @property (nonatomic, strong) NSString* passwd;
-@property (nonatomic, retain) NSMutableArray *actions;
-
+@property (nonatomic, strong) NSMutableArray *actions;
+@property (nonatomic, strong) NSError *error;
 
 +(NSArray*) actionClasses;
 +(NSArray*) options;
+
 -(PMKPromise*) processArguments:(NSMutableArray *)arguments ;
--(NSArray*) concatArgumentsForITMSTransporter;
+-(PMKPromise*) concatArgumentsForITMSTransporter;
 
 @end
