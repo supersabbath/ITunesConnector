@@ -13,7 +13,7 @@
 - (PMKPromise*) performActionWithOptions:(Options *)options
 {
     return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
-        fulfill(@"nothing to be done!");
+        fulfill(@"Nothing to be done!  iTunesConnector requires an action, try:  \n   iTunesConnector -h");
     }];
 }
 
@@ -21,6 +21,7 @@
     
     return  [NSError errorWithDomain:@"ActionErrorDomain" code:code userInfo:@{@"output_message":message}];
 }
+
 
 
 @end
