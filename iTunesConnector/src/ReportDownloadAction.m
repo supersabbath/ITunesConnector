@@ -65,30 +65,57 @@
  */
 - (PMKPromise*) performActionWithOptions:(Options *)options
 {
-
     if (options == nil) // security check also used for returning a done nothing promise
     {
         return [super performActionWithOptions:nil];
     }
     
     return [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject)
-    {
-        [options concatArgumentsForITMSTransporter].then(^(NSMutableArray *moreArgs){
-            
-            [self setupUserData:moreArgs];
-            return [self downloadReport];
-            
-        });
-    
-    }];
+            {
+                [options concatArgumentsForITMSTransporter].then(^(NSMutableArray *moreArgs){
+                    
+                
+                    [self setupUserData:moreArgs];
+                    NSMutableURLRequest *reportDownloadURLRequest = [self reportDownloadURLRequest];
+                    
+                    [NSURLConnection promise:reportDownloadURLRequest].then(^(NSData *reportData,NSHTTPURLResponse *response ,NSData *rawData){
+                        
+                        NSString *errorMessage = [[response allHeaderFields] objectForKey:@"Errormsg"];
+                        if (errorMessage)
+                        {
+                            NSError *error = [self errorForMessage:errorMessage andCode:Download_error];
+                            reject(error);
+                            return ;
+                        }
+                        
+                        NSString *originalFilename = [[response allHeaderFields] objectForKey:@"Filename"];
+                        originalFilename = [originalFilename stringByDeletingPathExtension];
+                        
+                        NSData *inflatedReportData = [rawData gzipInflate];
+                        NSString * cvsReports = [[NSString alloc] initWithData:inflatedReportData encoding:NSUTF8StringEncoding];
+                        NSData *outTxt =[cvsReports dataUsingEncoding:NSUTF8StringEncoding];
+                        
+                        NSString *currentPath = [[NSFileManager defaultManager] currentDirectoryPath];
+                        currentPath = [currentPath stringByAppendingPathComponent:originalFilename];
+                        BOOL success = [[NSFileManager defaultManager] createFileAtPath:currentPath contents:outTxt attributes:nil];
+                        
+                        if (success) {
+                            NSString *message = [NSString stringWithFormat:@"Report file at %@",currentPath];
+                            fulfill (message);
+                        }
+                    });
+                    
+                });
+                
+            }];
 }
 
 
 -(void) setupUserData:(NSMutableArray*) array{
-
+    
     user = [array objectAtIndex:1]; // secure access.. this array is created for sure
     password  = [array objectAtIndex:3];
-
+    
 }
 
 
@@ -111,52 +138,64 @@
     }];
 }
 
-#pragma mark Date formater
--(void) setReportDate:(NSString*)stringDate {
 
+#pragma mark HTTP Connection Methods
+
+-(NSMutableURLRequest*) reportDownloadURLRequest {
+    
+    NSData *reportDownloadBodyData = [[self reportDownloadBodyString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableURLRequest *reportDownloadRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://reportingitc.apple.com/autoingestion.tft"]];
+    [reportDownloadRequest setHTTPMethod:@"POST"];
+    [reportDownloadRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [reportDownloadRequest setValue:@"java/1.6.0_26" forHTTPHeaderField:@"User-Agent"];
+    [reportDownloadRequest setHTTPBody:reportDownloadBodyData];
+    
+    return reportDownloadRequest;
+}
+
+#pragma mark Date formater
+-(void) setReportDate:(NSString*)stringDate
+{
     _reportDate = [self dateFromString:stringDate];
 }
 
--(NSString*) dateFromString:(NSString *) stringDate {
-
-
+-(NSString*) dateFromString:(NSString *) stringDate
+{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy/MM/dd"];
-    
-    
+
     NSDate *today = [dateFormatter dateFromString:stringDate];
-    
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     cal.firstWeekday = 2;
     
     NSDateComponents *components =
     [cal components:NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:today];
-  
     
     NSDate *selectedDate = nil;
-    
-    if ([self.period isEqualToString:@"daily"]) {
-        
+    if ([self.period caseInsensitiveCompare:@"daily"] == NSOrderedSame)
+    {
         NSDate *singleDay  = [cal dateFromComponents:components];
         selectedDate = singleDay;
         
-    } else if ([self.period isEqualToString:@"weekly"]){
-     
+    } else if ([self.period caseInsensitiveCompare:@"weekly"] == NSOrderedSame) {
+        
         [components setDay:([components day] + ((7 - [components weekday])+1))];
         NSDate *lastWeek  = [cal dateFromComponents:components];
         selectedDate = lastWeek;
         
-    }else{  // defauld value Monthly
-     
+    }else{  // default case value Monthly
+        
         [components setDay:0];
         NSDate *thisMonth = [cal dateFromComponents:components];
         selectedDate = thisMonth;
     }
-
+    
     NSDateFormatter *finalFormater = [[NSDateFormatter alloc] init];
     [finalFormater setDateFormat:@"yyyyMMdd"];
+    
     return  [finalFormater stringFromDate:selectedDate];
 }
+
 
 -(NSString* ) reportDownloadBodyString
 {
@@ -166,55 +205,37 @@
 }
 
 -(PMKPromise*) downloadReport {
-
+    
     NSData *reportDownloadBodyData = [[self reportDownloadBodyString] dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *reportDownloadRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://reportingitc.apple.com/autoingestion.tft"]];
     [reportDownloadRequest setHTTPMethod:@"POST"];
     [reportDownloadRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [reportDownloadRequest setValue:@"java/1.6.0_26" forHTTPHeaderField:@"User-Agent"];
     [reportDownloadRequest setHTTPBody:reportDownloadBodyData];
- 
-   return  [NSURLConnection promise:reportDownloadRequest].then(^(NSData *reportData,NSHTTPURLResponse *response ,NSData *rawData){
-       
-           NSString *errorMessage = [[response allHeaderFields] objectForKey:@"Errormsg"];
-           if (errorMessage) {
-               NSLog(@"  %@", errorMessage);
-               return ;
-           }
-           NSString *originalFilename = [[response allHeaderFields] objectForKey:@"Filename"];
-       originalFilename = [originalFilename stringByDeletingPathExtension];
-            NSLog(@"  %@", originalFilename);
-       
+    
+    return  [NSURLConnection promise:reportDownloadRequest].then(^(NSData *reportData,NSHTTPURLResponse *response ,NSData *rawData){
+        
+        NSString *errorMessage = [[response allHeaderFields] objectForKey:@"Errormsg"];
+        if (errorMessage) {
+            NSLog(@"  %@", errorMessage);
+            return ;
+        }
+        NSString *originalFilename = [[response allHeaderFields] objectForKey:@"Filename"];
+        originalFilename = [originalFilename stringByDeletingPathExtension];
+        NSLog(@"  %@", originalFilename);
+        
         NSData *inflatedReportData = [rawData gzipInflate];
         NSString * cvsReports = [[NSString alloc] initWithData:inflatedReportData encoding:NSUTF8StringEncoding];
         NSLog(@"%@",cvsReports);
-
+        
         
         NSData *outTxt =[cvsReports dataUsingEncoding:NSUTF8StringEncoding];
-       
-       NSString *current = [[NSFileManager defaultManager] currentDirectoryPath];
-       current = [current stringByAppendingPathComponent:originalFilename];
+        
+        NSString *current = [[NSFileManager defaultManager] currentDirectoryPath];
+        current = [current stringByAppendingPathComponent:originalFilename];
         [[NSFileManager defaultManager] createFileAtPath:current contents:outTxt attributes:nil];
     });
-  
     
 }
-//
-//
-//    NSHTTPURLResponse *response = nil;
-//    NSData *reportData = [NSURLConnection sendSynchronousRequest:reportDownloadRequest returningResponse:&response error:NULL];
-//    
-//    NSString *errorMessage = [[response allHeaderFields] objectForKey:@"Errormsg"];
-//    if (errorMessage) {
-//        NSLog(@"  %@", errorMessage);
-//    }
-//    NSString *originalFilename = [[response allHeaderFields] objectForKey:@"Filename"];
-//     NSLog(@"  %@", originalFilename);
-//    
-//    NSData *inflatedReportData = [reportData gzipInflate];
-//
-//    NSString * cvsReports = [[NSString alloc] initWithData:inflatedReportData encoding:NSUTF8StringEncoding];
-//   NSLog(@"%@",cvsReports);
-
 
 @end

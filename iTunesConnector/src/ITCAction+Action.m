@@ -17,5 +17,10 @@
     }];
 }
 
+-(NSError *) errorForMessage:(NSString *)message andCode:(NSUInteger)code{
+    
+    return  [NSError errorWithDomain:@"ActionErrorDomain" code:code userInfo:@{@"output_message":message}];
+}
+
 
 @end

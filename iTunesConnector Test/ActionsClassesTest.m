@@ -134,33 +134,33 @@
     downloadReport.period = @"Daily";
     NSString *testDate =   [downloadReport dateFromString:@"2014/4/13"];
     //then
-    expect(testDate).to.equal(@"2014/04/13");
+    expect(testDate).to.equal(@"20140413");
 
     //give Monthly
     downloadReport.period = @"Monthly";
     testDate =   [downloadReport dateFromString:@"2014/4/19"];
     //then
-    expect(testDate).to.equal(@"2014/03/31");
+    expect(testDate).to.equal(@"20140331");
     
     //give Weekly
     downloadReport.period = @"Weekly";
     
     testDate =   [downloadReport dateFromString:@"2014/4/7"];
     //then
-    expect(testDate).to.equal(@"2014/04/13");
+    expect(testDate).to.equal(@"20140413");
     
     testDate =   [downloadReport dateFromString:@"2015/01/13"];
     //then
-    expect(testDate).to.equal(@"2015/01/18");
+    expect(testDate).to.equal(@"20150118");
 
     
     testDate =   [downloadReport dateFromString:@"2015/4/5"];
     //then
-    expect(testDate).to.equal(@"2015/04/12");
+    expect(testDate).to.equal(@"20150412");
     
     testDate =   [downloadReport dateFromString:@"2015/01/13"];
     //then
-    expect(testDate).to.equal(@"2015/01/18");
+    expect(testDate).to.equal(@"20150118");
 
 }
 
@@ -187,9 +187,10 @@
     [downloadReport consumeArguments:[@[@"-t",@"weekly",@"-d",@"2015/03/12",@"-v",@"86626911"]mutableCopy] errorMessage:nil];
     
     
-    [downloadReport performActionWithOptions:opt].then(^(id data){
+    [downloadReport performActionWithOptions:opt].then(^(NSString *message){
     
         [catchExpectation fulfill];
+        expect(message).to.beginWith(@"Report file at");
         
     }).catch(^{
         XCTFail(@"Download fails");

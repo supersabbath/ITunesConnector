@@ -57,7 +57,6 @@ NSString *const kStderrornotification =@"kStderrornotification";
         
         PMKPromise *readArgumentsPromise =[_options processArguments:[args mutableCopy]];
         
-        
         ITunesConnector * __weak weakSelf = self;
         PMKPromise *showHelpPromise = [weakSelf showHelpIfNeeded:_options];
         

@@ -18,7 +18,8 @@
 
 typedef enum : NSUInteger {
     unexpected_error,
-    missing_parameter_error
+    missing_parameter_error,
+    Download_error
 } ActionErrorCode;
 
 @class Options;
@@ -32,7 +33,7 @@ typedef enum : NSUInteger {
  @return A promise
  */
 - (PMKPromise*) performActionWithOptions:(Options *)options;
-
+-(NSError *) errorForMessage:(NSString *)message andCode:(NSUInteger)code;
 
  
 @end
