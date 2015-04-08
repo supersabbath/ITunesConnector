@@ -46,7 +46,7 @@ PODS:
 DEPENDENCIES:
   - Expecta (~> 0.2.4)
   - OCMock (~> 3.1)
-  - PromiseKit
+  - PromiseKit (~> 1.4.2)
 
 SPEC CHECKSUMS:
   Expecta: cfaf1d3e2e194ca704a25e997093d30a1ce70b61
@@ -54,4 +54,4 @@ SPEC CHECKSUMS:
   OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5
   PromiseKit: ea36001b558f42aa104a1422f305b46f8c343f2e
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.35.0

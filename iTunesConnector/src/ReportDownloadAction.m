@@ -28,8 +28,10 @@
     if (self) {
         self.period = @"Monthly";
     }
+
     return self;
 }
+
 + (NSString *)name
 {
     
@@ -115,7 +117,6 @@
     
     user = [array objectAtIndex:1]; // secure access.. this array is created for sure
     password  = [array objectAtIndex:3];
-    
 }
 
 

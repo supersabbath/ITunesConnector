@@ -39,8 +39,12 @@ NSString *const kStderrornotification =@"kStderrornotification";
     return self;
 }
 
--(void) dealloc{
 
+
+
+-(void) dealloc
+{
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -56,9 +60,7 @@ NSString *const kStderrornotification =@"kStderrornotification";
     }).then(^(NSArray *args){
         
         PMKPromise *readArgumentsPromise =[_options processArguments:[args mutableCopy]];
-        
-        ITunesConnector * __weak weakSelf = self;
-        PMKPromise *showHelpPromise = [weakSelf showHelpIfNeeded:_options];
+        PMKPromise *showHelpPromise = [self showHelpIfNeeded:_options];
         
         [PMKPromise when:@[readArgumentsPromise,showHelpPromise]].then(^(NSArray *results){
             
@@ -69,7 +71,7 @@ NSString *const kStderrornotification =@"kStderrornotification";
                 genericAction = (Action*)actions.firstObject;
             }
             
-            if ([(NSString*)results.lastObject isEqualToString:@"Stop"] ){
+            if ([(NSString*)results.lastObject isEqualToString:@"Stop"] || genericAction == nil ){
                 Action *emptyAction = [[Action alloc] init];
                 return [emptyAction performActionWithOptions:nil]; // Go to the super class implementation and do nothing
             } else{
@@ -83,7 +85,7 @@ NSString *const kStderrornotification =@"kStderrornotification";
                     _exitStatus = EXIT_SUCCESS;
                     
                 }).catch(^(NSError* error){
-                
+                    
                     NSError *validError = (_options.error)?_options.error:error;
                     [self manageError:validError];
                     _exitStatus = EXIT_FAILURE;
@@ -104,6 +106,8 @@ NSString *const kStderrornotification =@"kStderrornotification";
     
 }
 #pragma mark - Promesify Actions
+
+
 
 -(PMKPromise*) showHelpIfNeeded:(Options*) options
 {
@@ -127,10 +131,10 @@ NSString *const kStderrornotification =@"kStderrornotification";
         
         if ([_arguments containsObject:@"-h"])
         {
-              fulfill(_arguments);
+            fulfill(_arguments);
             return;
         }
-     
+        
         NSFileManager *fm = [NSFileManager defaultManager];
         if ([fm isReadableFileAtPath:@".itc-arg.json"]) {
             NSError *readError = nil;
@@ -147,8 +151,8 @@ NSString *const kStderrornotification =@"kStderrornotification";
             
             NSError *JSONError = nil;
             NSArray *argumentsList = [NSJSONSerialization JSONObjectWithData:[argumentsString dataUsingEncoding:NSUTF8StringEncoding]
-                                                                          options:0
-                                                                            error:&JSONError];
+                                                                     options:0
+                                                                       error:&JSONError];
             if (JSONError)
             {
                 [_standardError printString:@"ERROR: couldn't parse json: %@: %@\n", argumentsString, [JSONError localizedDescription]];
@@ -222,7 +226,7 @@ NSString *const kStderrornotification =@"kStderrornotification";
 - (void) outputMessageToStdout:(NSNotification *) notification
 {
     NSString *outputMessage =[notification object];
-    [_standardOutput printString:@"%@ \n",outputMessage];
+    [_standardOutput printString:@"\n%@ \n",outputMessage];
 }
 
 
@@ -230,7 +234,7 @@ NSString *const kStderrornotification =@"kStderrornotification";
 - (void) outputMessageToStderror:(NSNotification *) notification
 {
     NSString *outputMessage =[notification object];
-    [_standardError printString:@"%@ \n",outputMessage];
+    [_standardError printString:@"\n%@ \n",outputMessage];
 }
 
 
@@ -240,12 +244,12 @@ NSString *const kStderrornotification =@"kStderrornotification";
 {
     NSString * errorMenssage = @"--Unknown";
     
-    if ([error.domain isEqualToString:kOptionsErrorDomain])
+    if ([error.domain isEqualToString:kOptionsErrorDomain] || error.userInfo[@"output_message"])
     {
-        errorMenssage =[NSString stringWithFormat:@"%@",error.userInfo[@"output_message"]];
+        errorMenssage =[NSString stringWithFormat:@"\n%@ \n",error.userInfo[@"output_message"]];
     }else
     {
-        errorMenssage =[NSString stringWithFormat:@"%@",error.description];
+        errorMenssage =[NSString stringWithFormat:@"\n%@ \n",error.description];
     }
     
     [_standardError printString:@"ERROR: %@\n",errorMenssage];
