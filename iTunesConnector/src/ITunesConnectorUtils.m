@@ -123,12 +123,12 @@ NSString *XcodeDeveloperDirPath(void) {
 
 BOOL RunITMSTransporterCommand(NSArray *arguments, NSString *command)
 {
-#if DEBUG
-    NSLog(@"DEBUG version");
-    [[NSNotificationCenter defaultCenter] postNotificationName:kStdoutnotification object:command];
-    return YES;
-#endif
-    
+//#if DEBUG
+//    NSLog(@"DEBUG version");
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kStdoutnotification object:command];
+//    return YES;
+//#endif
+
     NSString *xcodePath = XcodeDeveloperDirPath();
     
     NSTask *transporterTask = [[NSTask alloc] init];

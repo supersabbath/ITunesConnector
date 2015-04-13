@@ -58,7 +58,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -75,6 +75,9 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "lookupMetadata -vendor_id starzplay -path ~/Desktop"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument

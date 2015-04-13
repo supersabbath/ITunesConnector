@@ -608,7 +608,7 @@
 				E13A30981AC8344700258E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		E13A30991AC8344700258E35 /* Build configuration list for PBXNativeTarget "iTunesConnector" */ = {
 			isa = XCConfigurationList;
@@ -617,7 +617,7 @@
 				E13A309B1AC8344700258E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		E13A30A61AC8347900258E35 /* Build configuration list for PBXNativeTarget "iTunesConnector Test" */ = {
 			isa = XCConfigurationList;
@@ -626,7 +626,7 @@
 				E13A30A81AC8347900258E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
